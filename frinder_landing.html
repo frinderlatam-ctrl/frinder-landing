@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frinder Agency — Especialistas en hacer crecer negocios</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --blue: #38B6FF;
+    --blue-dark: #1A8FD1;
+    --bg: #0A0A0A;
+    --bg-card: #111111;
+    --bg-card2: #161616;
+    --text: #FFFFFF;
+    --text-muted: #8A8A8A;
+    --border: #222222;
+    --green: #22C55E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-logo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .nav-logo span {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+
+  .nav-cta {
+    background: var(--blue);
+    color: #000;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero {
+    padding: 140px 40px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(56,182,255,0.1);
+    border: 1px solid rgba(56,182,255,0.25);
+    color: var(--blue);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .hero-badge .dot {
+    width: 7px; height: 7px;
+    background: var(--blue);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 6vw, 64px);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+    color: var(--text);
+  }
+
+  .hero h1 span { color: var(--blue); }
+
+  .hero p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    background: var(--blue);
+    color: #000;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 16px 36px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: -0.2px;
+  }
+
+  .hero-cta:hover {
+    background: var(--blue-dark);
+    transform: translateY(-1px);
+  }
+
+  .hero-sub {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* STATS */
+  .stats {
+    padding: 60px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .stat {
+    background: var(--bg-card);
+    padding: 36px 32px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--blue);
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* VIDEO */
+  .section {
+    padding: 80px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .section h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .section p {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 560px;
+    line-height: 1.7;
+  }
+
+  .video-placeholder {
+    margin-top: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(56,182,255,0.05) 0%, transparent 70%);
+  }
+
+  .play-btn {
+    width: 72px; height: 72px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .play-btn::after {
+    content: '';
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 12px 0 12px 22px;
+    border-color: transparent transparent transparent #000;
+    margin-left: 4px;
+  }
+
+  .video-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* DIFERENCIAL */
+  .diferencial {
+    padding: 80px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .diff-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .diff-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    transition: border-color 0.2s;
+  }
+
+  .diff-card:hover { border-color: rgba(56,182,255,0.3); }
+
+  .diff-icon {
+    width: 44px; height: 44px;
+    background: rgba(56,182,255,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .diff-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+
+  .diff-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .diff-card.highlight {
+    border-color: rgba(56,182,255,0.3);
+    background: rgba(56,182,255,0.04);
+    grid-column: 1 / -1;
+  }
+
+  /* RESULTADOS */
+  .resultados {
+    padding: 80px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .casos-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .caso {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+  }
+
+  .caso-rubro {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .caso-nums {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+
+  .caso-num-item {}
+
+  .caso-num-val {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--text);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+
+  .caso-num-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .caso-arrow {
+    font-size: 22px;
+    color: var(--green);
+    font-weight: 900;
+    align-self: center;
+  }
+
+  .caso-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* PLANES */
+  .planes {
+    padding: 80px 40px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .planes-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
+
+  .plan {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+
+  .plan:hover { border-color: rgba(56,182,255,0.3); }
+
+  .plan.featured {
+    border-color: var(--blue);
+    background: rgba(56,182,255,0.04);
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--blue);
+    color: #000;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .plan-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .plan-price {
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .plan-price span {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0;
+  }
+
+  .plan-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+  }
+
+  .plan-divider {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 24px;
+  }
+
+  .plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .plan-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .plan-features li .check {
+    color: var(--blue);
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .plan-features li strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .plan-btn {
+    display: block;
+    text-align: center;
+    padding: 13px;
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .plan-btn.primary {
+    background: var(--blue);
+    color: #000;
+  }
+
+  .plan-btn.primary:hover { background: var(--blue-dark); }
+
+  .plan-btn.secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .plan-btn.secondary:hover { border-color: var(--blue); color: var(--blue); }
+
+  /* PROCESO */
+  .proceso {
+    padding: 80px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .proceso-steps {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: 24px;
+    position: relative;
+  }
+
+  .step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 44px;
+    bottom: -20px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .step-num {
+    width: 40px; height: 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--blue);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-content {
+    padding-bottom: 40px;
+    flex: 1;
+  }
+
+  .step-content h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+
+  .step-content p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* FORM */
+  .form-section {
+    padding: 80px 40px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .form-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 48px;
+  }
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .form-header h2 {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin-bottom: 12px;
+  }
+
+  .form-header p {
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 13px 16px;
+    font-size: 15px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s;
+    outline: none;
+    -webkit-appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--blue);
+  }
+
+  .form-group select option { background: #111; }
+
+  .form-group textarea { resize: vertical; min-height: 90px; }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--blue);
+    color: #000;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 24px;
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.2px;
+  }
+
+  .form-submit:hover {
+    background: var(--blue-dark);
+    transform: translateY(-1px);
+  }
+
+  .form-nota {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 16px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  footer .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  footer .logo img {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+
+  footer .logo span {
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  footer p {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  /* DIVIDER LINE */
+  .section-divider {
+    max-width: 900px;
+    margin: 0 auto;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .hero { padding: 120px 20px 60px; }
+    .hero h1 { letter-spacing: -1.5px; }
+    .stats { grid-template-columns: 1fr; margin: 0 20px; }
+    .section, .diferencial, .resultados, .planes, .proceso, .form-section {
+      padding: 60px 20px;
+    }
+    .diff-grid { grid-template-columns: 1fr; }
+    .diff-card.highlight { grid-column: 1; }
+    .casos-grid { grid-template-columns: 1fr; }
+    .resultados { padding: 60px 20px; }
+    .planes-grid { grid-template-columns: 1fr; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-wrap { padding: 28px 20px; }
+    footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVsAAAFcCAYAAABmyh1VAAAACXBIWXMAAAsSAAALEgHS3X78AAAb50lEQVR4nO3dP2yUd57H8Q8c3tOgeMjhwhk0Ukxhn0IBXCYWKbJi0mxhOdlI18SkYYt1UqKQrTH1Bi7XLaFYtthAtUeyjotrGGtTBFn2AjoFrafAufPGccFcsK1Yt4zWV/xmYGzPzPP/eX7P87xfkpUEhpmfTfzxd76/fwd2dnaURuNzOi3pxdZ/jrQ+AGTPSutDkn5YmNC95Ibi3wHbw3Z8TiOSqtKuf76c1HgAWOFbmQC+1/qoLUw8C2QrWRe243N6UdI7MsFaFcEKwJ0nkm5Lqkm6vTChH5Idzm5WhG1HwL4j6ecJDwdANnwuE75WBG+iYdvqu16QCdkjiQ0EQNb9TtKNhQnVkhpAImE7PqeqpBlJZ2N/cQB5Ni9pJonQjTVsCVkAlog9dGMJ29aKghsiZAHYZV7ShTiWk0Uatq2JrwuSLkX2IgAQ3GVJn0Q5kRZZ2LYmv26LpVsA0uFbSeejai0cjOJJx+c0I+nPImgBpMfLku208it0oVa2rbbBbdGbBZBu85LeCbOtEFrY0jYAkDFPJFXDmjwLpY0wPqd3ZLbIEbQAsuKIpNr4nM6H8WSBK9vWQH4bxmAAwFK/WJjQjSBPEKiyJWgB5MRvg1a4vsOWoAWQM4EC11fYErQAcsp34Hru2bZWHfzZz4sBQEb8i9dVCp4q29YZBzUvfwYAMqjWKjxdcx22HRsWOHcWQN4dkXSjlYuueKlsP5F0yvOQACCbTsnkoiuueratTQv/EWBQAJBVrtbgOoZtq0xeEe0DAOjmiaTTTrf7umkj3BBBCwC9HJGcK9u+YdtqH3DbLQD0d7aVlz31bCO02gf3xOEyAODGtzLthK7HMvarbC+IoAUAt16Wyc2uula2TIoBgC9PJI10q257VbYXRNACgFdH1KO63VfZUtUCQCBdq9tulS1VLQD417W67Ra25yMfCgBk2/m9v7ArbFvrxFiBAADBvLz33Nu9le15AQDCsGuTw7MJstbE2P8mMSIAyKh/ak+UdVa2fbeaAQA8e5arhC0ARK1r2FbjHwcAZNqzg7wOStL4nKpibS0AhK6Vr88q22piIwGAbKtKhC0ARK0qPQ9bT1fyAgBcOytJB177cmdE0qNkxwIAmXb8oKSRpEcBABk3clC0EAAiatWDkl5MehQAkHVUtgAQPSpbAIhDv9t1AQAhIWwBIHqnD6q14BYAEJkjVLYAEAPCFgBiQNgCQAwIWwCIwaGkBwB4VRmSKkelUkE6dvj5r3/3o7S2LS1vSIsNafNpcmME9iJskQqVIWlqRDo73Psxrx7d/d/z61Jt3fyT4EXSDrz2Zesuc8BClSFpenR/kHqx1ZRuPpJurhC6SA5hC2tdPCG9OxLe8xG6SBJhC+sMDkgfV4JVs/0QukgCYQurDA5I185Io8XoX4vQRZwIW1jl40r/SbAoELqIA+tsYY2p4/EHrSS9cEj65aj0xZtmMm5wIP4xIPuobGGFUkH67Kcm+LxYajz/97B6vFtNqfa99GndrNsFwsA6W1hhetR90C41zNv+2vr+3xsrSm+Vpcmy9+BuKuQeAAAIAElFTkSuQmCC" alt="Frinder">
+    <span>Frinder</span>
+  </div>
+  <a href="#califica" class="nav-cta">Quiero saber si califico</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <div class="dot"></div>
+    Especialistas en hacer crecer negocios
+  </div>
+  <h1>Tu negocio vende.<br>Nosotros lo <span>escalamos.</span></h1>
+  <p>No somos solo una agencia de publicidad. Somos el equipo que se sienta a entender tu negocio completo y lo hace crecer con sistema, estrategia y resultados reales.</p>
+  <a href="#califica" class="hero-cta">Quiero saber si mi negocio califica →</a>
+  <p class="hero-sub">Sin compromiso · Respuesta en menos de 24hs</p>
+</section>
+
+<!-- STATS -->
+<div style="max-width:900px;margin:0 auto;padding:0 40px;">
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">90%</div>
+      <div class="stat-label">de clientes renueva<br>mes a mes</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">+50</div>
+      <div class="stat-label">negocios escalados<br>con resultados reales</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">+8</div>
+      <div class="stat-label">años de experiencia<br>del equipo</div>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<section class="section">
+  <div class="section-label">Quiénes somos</div>
+  <h2>Antes de hablar de publicidad,<br>entendemos tu negocio.</h2>
+  <p>En 90 segundos te explicamos por qué Frinder trabaja diferente a cualquier agencia de publicidad.</p>
+  <div class="video-placeholder">
+    <div class="play-btn"></div>
+    <p class="video-label">Video próximamente</p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- DIFERENCIAL -->
+<section class="diferencial">
+  <div class="section-label">Por qué Frinder</div>
+  <h2>Más que una agencia.<br>Un Project Manager para tu negocio.</h2>
+
+  <div class="diff-grid">
+    <div class="diff-card highlight">
+      <div class="diff-icon">🧠</div>
+      <h3>Project Manager dedicado a tu negocio</h3>
+      <p>No solo gestionamos tus campañas. Tenés un Project Manager analizando activamente tu negocio: cómo respondés los mensajes, cómo está tu tienda, tus márgenes, tus redes. Todo lo que impacta en que un lead se convierta en venta real. Esto no lo hace ninguna agencia de publicidad.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-icon">📊</div>
+      <h3>Diagnóstico 360° del negocio</h3>
+      <p>Antes de correr un peso en pauta, analizamos 9 dimensiones de tu negocio: pauta, WhatsApp, tienda, redes, márgenes, competencia y más. Sabemos exactamente dónde están las oportunidades antes de arrancar.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-icon">📈</div>
+      <h3>Meta Ads que generan ventas reales</h3>
+      <p>Gestionamos tus campañas con estructura, datos y estrategia creativa propia. No prendemos campañas por prender — optimizamos semana a semana con foco en resultados de facturación, no solo en métricas de plataforma.</p>
+    </div>
+    <div class="diff-card">
+      <div class="diff-icon">🤖</div>
+      <h3>Agente de IA en WhatsApp</h3>
+      <p>En el Plan Growth, implementamos un agente de IA que responde y califica las consultas de tu negocio las 24 horas. No perdés un lead más por no responder a tiempo.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- RESULTADOS -->
+<section class="resultados">
+  <div class="section-label">Resultados reales</div>
+  <h2>Números de negocios<br>que ya escalamos.</h2>
+
+  <div class="casos-grid">
+    <div class="caso">
+      <div class="caso-rubro">🪑 Fábrica de Sillones</div>
+      <div class="caso-nums">
+        <div class="caso-num-item">
+          <div class="caso-num-val">$2M</div>
+          <div class="caso-num-label">Invertido</div>
+        </div>
+        <div class="caso-arrow">→</div>
+        <div class="caso-num-item">
+          <div class="caso-num-val">$36M</div>
+          <div class="caso-num-label">Facturado</div>
+        </div>
+      </div>
+      <div class="caso-desc">30 ventas mensuales sostenidas con estrategia creativa y proceso comercial optimizado.</div>
+    </div>
+    <div class="caso">
+      <div class="caso-rubro">🚗 Venta de Autopartes</div>
+      <div class="caso-nums">
+        <div class="caso-num-item">
+          <div class="caso-num-val">$500K</div>
+          <div class="caso-num-label">Invertido</div>
+        </div>
+        <div class="caso-arrow">→</div>
+        <div class="caso-num-item">
+          <div class="caso-num-val">$12M</div>
+          <div class="caso-num-label">Facturado</div>
+        </div>
+      </div>
+      <div class="caso-desc">Segmentación local precisa y creativos enfocados en conversión directa por WhatsApp.</div>
+    </div>
+    <div class="caso">
+      <div class="caso-rubro">🛁 Fábrica de Vanitorys</div>
+      <div class="caso-nums">
+        <div class="caso-num-item">
+          <div class="caso-num-val">$900K</div>
+          <div class="caso-num-label">Invertido</div>
+        </div>
+        <div class="caso-arrow">→</div>
+        <div class="caso-num-item">
+          <div class="caso-num-val">$8M</div>
+          <div class="caso-num-label">Facturado</div>
+        </div>
+      </div>
+      <div class="caso-desc">Optimización de tienda online y pauta con foco en producto de alto ticket.</div>
+    </div>
+    <div class="caso">
+      <div class="caso-rubro">📋 Gestoría de Servicios</div>
+      <div class="caso-nums">
+        <div class="caso-num-item">
+          <div class="caso-num-val">$1.5M</div>
+          <div class="caso-num-label">Invertido</div>
+        </div>
+        <div class="caso-arrow">→</div>
+        <div class="caso-num-item">
+          <div class="caso-num-val">$11M</div>
+          <div class="caso-num-label">Facturado</div>
+        </div>
+      </div>
+      <div class="caso-desc">Estrategia de contenido + pauta orientada a leads calificados que cierran por WhatsApp.</div>
+    </div>
+    <div class="caso">
+      <div class="caso-rubro">📦 Distribuidor Mayorista B2B</div>
+      <div class="caso-nums">
+        <div class="caso-num-item">
+          <div class="caso-num-val">B2B</div>
+          <div class="caso-num-label">Canal</div>
+        </div>
+        <div class="caso-arrow">→</div>
+        <div class="caso-num-item">
+          <div class="caso-num-val">$76M</div>
+          <div class="caso-num-label">Facturado</div>
+        </div>
+      </div>
+      <div class="caso-desc">Estrategia de pauta orientada a canales mayoristas con foco en volumen y recompra.</div>
+    </div>
+    <div class="caso">
+      <div class="caso-rubro">👗 Fabricante de Indumentaria Femenina</div>
+      <div class="caso-nums">
+        <div class="caso-num-item">
+          <div class="caso-num-val">$500K</div>
+          <div class="caso-num-label">Invertido</div>
+        </div>
+        <div class="caso-arrow">→</div>
+        <div class="caso-num-item">
+          <div class="caso-num-val">$12M</div>
+          <div class="caso-num-label">Facturado</div>
+        </div>
+      </div>
+      <div class="caso-desc">20 clientes mayoristas nuevos en el primer mes con pauta segmentada y proceso comercial optimizado.</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PLANES -->
+<section class="planes">
+  <div class="section-label" style="text-align:center;">Planes</div>
+  <h2 style="text-align:center;max-width:600px;margin:0 auto 8px;">Elegí el plan que<br>tu negocio necesita.</h2>
+  <p style="text-align:center;color:var(--text-muted);font-size:15px;margin-bottom:0;">Todos incluyen Project Manager dedicado desde el día 1.</p>
+
+  <div class="planes-grid">
+
+    <!-- Plan Comercial -->
+    <div class="plan">
+      <div class="plan-name">Comercial</div>
+      <div class="plan-price">$500 <span>USD/mes</span></div>
+      <div class="plan-sub">Honorarios · Pauta publicitaria aparte</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span><span><strong>Gestión de Meta Ads</strong></span></li>
+        <li><span class="check">✓</span><span><strong>Project Manager</strong> dedicado a tu negocio</span></li>
+        <li><span class="check">✓</span><span><strong>Diagnóstico 360°</strong> inicial</span></li>
+        <li><span class="check">✓</span><span><strong>Consultoría comercial</strong> — WhatsApp o tienda</span></li>
+        <li><span class="check">✓</span><span><strong>Revisión de redes</strong></span></li>
+        <li><span class="check">✓</span><span>Reporte mensual</span></li>
+      </ul>
+      <a href="#califica" class="plan-btn secondary">Empezar con Comercial</a>
+    </div>
+
+    <!-- Plan Growth -->
+    <div class="plan featured">
+      <div class="plan-badge">⭐ Más elegido</div>
+      <div class="plan-name">Growth</div>
+      <div class="plan-price">$700 <span>USD/mes</span></div>
+      <div class="plan-sub">Honorarios · Pauta publicitaria aparte</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span><span>Todo lo del Plan Comercial</span></li>
+        <li><span class="check">✓</span><span><strong>Google Ads</strong> — búsqueda + display</span></li>
+        <li><span class="check">✓</span><span>Estrategia cross-channel Meta + Google</span></li>
+        <li><span class="check">✓</span><span>Mayor cobertura y visibilidad para tu negocio</span></li>
+      </ul>
+      <a href="#califica" class="plan-btn primary">Empezar con Growth</a>
+    </div>
+
+    <!-- Plan Full -->
+    <div class="plan">
+      <div class="plan-name">Full</div>
+      <div class="plan-price">$950 <span>USD/mes</span></div>
+      <div class="plan-sub">Honorarios · Pauta publicitaria aparte</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span><span>Todo lo del Plan Growth</span></li>
+        <li><span class="check">✓</span><span><strong>Agente de IA en WhatsApp</strong> — responde y cierra consultas 24/7</span></li>
+        <li><span class="check">✓</span><span>Personalizable para tu negocio</span></li>
+        <li><span class="check">✓</span><span>No perdés un lead más por no responder a tiempo</span></li>
+      </ul>
+      <a href="#califica" class="plan-btn secondary">Empezar con Full</a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROCESO -->
+<section class="proceso">
+  <div class="section-label">Cómo trabajamos</div>
+  <h2>Del primer contacto<br>a los primeros resultados.</h2>
+
+  <div class="proceso-steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Completás el formulario de calificación</h3>
+        <p>Nos contás sobre tu negocio. Revisamos si podemos ayudarte de verdad — no trabajamos con cualquier negocio, solo con los que tienen potencial real de crecimiento.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Meet de diagnóstico</h3>
+        <p>Si tu negocio califica, agendamos una videollamada. En 30 minutos analizamos juntos tu negocio, identificamos los cuellos de botella y definimos el plan de ataque.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Diagnóstico 360° del negocio</h3>
+        <p>Analizamos las 9 dimensiones de tu negocio — pauta, WhatsApp, tienda, redes, márgenes y más. Te entregamos el mapa completo de problemas ordenados por impacto.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Arrancamos y escalamos</h3>
+        <p>Implementamos el plan de ataque por fases. Semana a semana optimizamos, medimos y ajustamos. El 90% de nuestros clientes renueva porque ve resultados reales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- FORM -->
+<section class="form-section" id="califica">
+  <div class="form-wrap">
+    <div class="form-header">
+      <h2>¿Tu negocio califica?</h2>
+      <p>Completá el formulario. Te respondemos en menos de 24hs para ver si podemos ayudarte.</p>
+    </div>
+
+    <form onsubmit="handleSubmit(event)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label>WhatsApp</label>
+          <input type="tel" placeholder="+54 9 11 0000-0000" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Instagram del negocio</label>
+        <input type="text" placeholder="@tunegocio" required>
+      </div>
+
+      <div class="form-group">
+        <label>¿Qué tipo de negocio tenés?</label>
+        <select required>
+          <option value="">Seleccioná</option>
+          <option>Fabricante</option>
+          <option>Distribuidor mayorista</option>
+          <option>Minorista / Retail</option>
+          <option>Servicios profesionales</option>
+          <option>E-commerce</option>
+          <option>Inmobiliaria / Construcción</option>
+          <option>Salud / Bienestar / Fitness</option>
+          <option>Gastronomía / Alimentos</option>
+          <option>Otro</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Cómo vendés principalmente?</label>
+        <select required>
+          <option value="">Seleccioná</option>
+          <option>WhatsApp</option>
+          <option>Tienda online</option>
+          <option>Ambos</option>
+          <option>Local físico + WhatsApp</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Facturación mensual aproximada (en USD)</label>
+        <select required>
+          <option value="">Seleccioná</option>
+          <option>Menos de $2.000 USD</option>
+          <option>$2.000 - $5.000 USD</option>
+          <option>$5.000 - $15.000 USD</option>
+          <option>$15.000 - $50.000 USD</option>
+          <option>Más de $50.000 USD</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Cuál es tu principal problema hoy? (opcional)</label>
+        <textarea placeholder="Ej: tengo muchos mensajes pero no cierro, no sé si la pauta está funcionando, quiero escalar pero no sé por dónde..."></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Quiero saber si mi negocio califica →</button>
+      <p class="form-nota">Sin compromiso. No es una venta, es una conversación.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVsAAAFcCAYAAABmyh1VAAAACXBIWXMAAAsSAAALEgHS3X78AAAb50lEQVR4nO3dP2yUd57H8Q8c3tOgeMjhwhk0Ukxhn0IBXCYWKbJi0mxhOdlI18SkYYt1UqKQrTH1Bi7XLaFYtthAtUeyjotrGGtTBFn2AjoFrafAufPGccFcsK1Yt4zWV/xmYGzPzPP/eX7P87xfkpUEhpmfTfzxd76/fwd2dnaURuNzOi3pxdZ/jrQ+AGTPSutDkn5YmNC95Ibi3wHbw3Z8TiOSqtKuf76c1HgAWOFbmQC+1/qoLUw8C2QrWRe243N6UdI7MsFaFcEKwJ0nkm5Lqkm6vTChH5Idzm5WhG1HwL4j6ecJDwdANnwuE75WBG+iYdvqu16QCdkjiQ0EQNb9TtKNhQnVkhpAImE7PqeqpBlJZ2N/cQB5Ni9pJonQjTVsCVkAlog9dGMJ29aKghsiZAHYZV7ShTiWk0Uatq2JrwuSLkX2IgAQ3GVJn0Q5kRZZ2LYmv26LpVsA0uFbSeejai0cjOJJx+c0I+nPImgBpMfLku208it0oVa2rbbBbdGbBZBu85LeCbOtEFrY0jYAkDFPJFXDmjwLpY0wPqd3ZLbIEbQAsuKIpNr4nM6H8WSBK9vWQH4bxmAAwFK/WJjQjSBPEKiyJWgB5MRvg1a4vsOWoAWQM4EC11fYErQAcsp34Hru2bZWHfzZz4sBQEb8i9dVCp4q29YZBzUvfwYAMqjWKjxdcx22HRsWOHcWQN4dkXSjlYuueKlsP5F0yvOQACCbTsnkoiuueratTQv/EWBQAJBVrtbgOoZtq0xeEe0DAOjmiaTTTrf7umkj3BBBCwC9HJGcK9u+YdtqH3DbLQD0d7aVlz31bCO02gf3xOEyAODGtzLthK7HMvarbC+IoAUAt16Wyc2uula2TIoBgC9PJI10q257VbYXRNACgFdH1KO63VfZUtUCQCBdq9tulS1VLQD417W67Ra25yMfCgBk2/m9v7ArbFvrxFiBAADBvLz33Nu9le15AQDCsGuTw7MJstbE2P8mMSIAyKh/ak+UdVa2fbeaAQA8e5arhC0ARK1r2FbjHwcAZNqzg7wOStL4nKpibS0AhK6Vr88q22piIwGAbKtKhC0ARK0qPQ9bT1fyAgBcOytJB177cmdE0qNkxwIAmXb8oKSRpEcBABk3clC0EAAiatWDkl5MehQAkHVUtgAQPSpbAIhDv9t1AQAhIWwBIHqnD6q14BYAEJkjVLYAEAPCFgBiQNgCQAwIWwCIwaGkBwB4VRmSKkelUkE6dvj5r3/3o7S2LS1vSIsNafNpcmME9iJskQqVIWlqRDo73Psxrx7d/d/z61Jt3fyT4EXSDrz2Zesuc8BClSFpenR/kHqx1ZRuPpJurhC6SA5hC2tdPCG9OxLe8xG6SBJhC+sMDkgfV4JVs/0QukgCYQurDA5I185Io8XoX4vQRZwIW1jl40r/SbAoELqIA+tsYY2p4/EHrSS9cEj65aj0xZtmMm5wIP4xIPuobGGFUkH67Kcm+LxYajz/97B6vFtNqfa99GndrNsFwsA6W1hhetR90C41zNv+2vr+3xsrSm+Vpcmy9+BuKuQeAAAIAElFTkSuQmCC" alt="Frinder">
+    <span>Frinder Agency</span>
+  </div>
+  <div style="text-align:right;">
+    <p style="margin-bottom:4px;"><a href="https://instagram.com/frinder.latam" target="_blank" style="color:var(--blue);text-decoration:none;font-weight:600;">@frinder.latam</a></p>
+    <p>📍 Martínez, Buenos Aires, Argentina</p>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = '✓ Formulario enviado — te contactamos en menos de 24hs';
+  btn.style.background = '#22C55E';
+  btn.style.color = '#fff';
+  btn.disabled = true;
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>
