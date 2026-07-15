@@ -1048,17 +1048,93 @@
       <p>Completá el formulario. Te respondemos en menos de 24hs para ver si podemos ayudarte.</p>
     </div>
 
-    <iframe 
-      src="https://docs.google.com/forms/d/e/1FAIpQLSfd-XQ-aDmMZThUvsOstqYDlpuvpc0X0rTU9xKB9_maDw5sAg/viewform?embedded=true" 
-      width="100%" 
-      height="2152" 
-      frameborder="0" 
-      marginheight="0" 
-      marginwidth="0"
-      style="border-radius:12px;margin-top:8px;">
-      Cargando…
-    </iframe>
-    <p class="form-nota" style="margin-top:16px;">Sin compromiso. No es una venta, es una conversación.<br>Te respondemos en menos de 24hs.</p>
+    <form id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nombre *</label>
+          <input type="text" name="nombre" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label>WhatsApp *</label>
+          <input type="tel" name="whatsapp" placeholder="+54 9 11 0000-0000" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Instagram del negocio *</label>
+        <input type="text" name="instagram" placeholder="@tunegocio" required>
+      </div>
+
+      <div class="form-group">
+        <label>¿Qué tipo de negocio tenés? *</label>
+        <select name="tipo_negocio" required>
+          <option value="">Seleccioná</option>
+          <option>Fabricante</option>
+          <option>Distribuidor mayorista</option>
+          <option>Minorista / Retail</option>
+          <option>Servicios profesionales</option>
+          <option>E-commerce</option>
+          <option>Inmobiliaria / Construcción</option>
+          <option>Salud / Bienestar / Fitness</option>
+          <option>Gastronomía / Alimentos</option>
+          <option>Otro</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Cómo vendés principalmente? *</label>
+        <select name="canal_venta" required>
+          <option value="">Seleccioná</option>
+          <option>WhatsApp</option>
+          <option>Tienda online</option>
+          <option>Ambos</option>
+          <option>Local físico + WhatsApp</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Facturación mensual aproximada (en USD) *</label>
+        <select name="facturacion" required>
+          <option value="">Seleccioná</option>
+          <option>Menos de $2.000 USD</option>
+          <option>$2.000 - $5.000 USD</option>
+          <option>$5.000 - $15.000 USD</option>
+          <option>$15.000 - $50.000 USD</option>
+          <option>Más de $50.000 USD</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Invertís actualmente en publicidad online? *</label>
+        <select name="inversion_actual" required>
+          <option value="">Seleccioná</option>
+          <option>Sí, en Meta Ads (Facebook/Instagram)</option>
+          <option>Sí, en Google Ads</option>
+          <option>Sí, en ambas</option>
+          <option>No, nunca invertí</option>
+          <option>Invertí antes pero paré</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Cuánto invertís o estás dispuesto a invertir por mes en publicidad? *</label>
+        <select name="presupuesto_ads" required>
+          <option value="">Seleccioná</option>
+          <option>Menos de $200 USD</option>
+          <option>$200 - $500 USD</option>
+          <option>$500 - $1.000 USD</option>
+          <option>Más de $1.000 USD</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>¿Cuál es tu principal problema hoy? (opcional)</label>
+        <textarea name="problema" placeholder="Ej: tengo muchos mensajes pero no cierro, no sé si la pauta está funcionando, quiero escalar pero no sé por dónde..."></textarea>
+      </div>
+
+      <button type="submit" class="form-submit" id="submitBtn">Quiero saber si mi negocio califica →</button>
+      <p class="form-nota">Sin compromiso. No es una venta, es una conversación.</p>
+    </form>
   </div>
 </section>
 
@@ -1074,15 +1150,59 @@
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
+  // ─── CONFIGURACIÓN EMAILJS ───
+  const EMAILJS_PUBLIC_KEY  = '-s3zE-4cDNgQdx1qb';
+  const EMAILJS_SERVICE_ID  = 'service_keunnes';
+  const EMAILJS_TEMPLATE_ID = 'template_4nx9y4n';
+
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const form = e.target;
+    const btn  = document.getElementById('submitBtn');
+
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+
+    const params = {
+      nombre:           form.nombre.value,
+      whatsapp:         form.whatsapp.value,
+      instagram:        form.instagram.value,
+      tipo_negocio:     form.tipo_negocio.value,
+      canal_venta:      form.canal_venta.value,
+      facturacion:      form.facturacion.value,
+      inversion_actual: form.inversion_actual.value,
+      presupuesto_ads:  form.presupuesto_ads.value,
+      problema:         form.problema.value || 'No especificó',
+    };
+
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, params);
+      btn.textContent = '✓ ¡Formulario enviado! Te contactamos en menos de 24hs';
+      btn.style.background = '#22C55E';
+      btn.style.opacity = '1';
+      btn.style.color = '#fff';
+      form.reset();
+    } catch (err) {
+      btn.textContent = 'Error al enviar — intentá de nuevo';
+      btn.style.background = '#EF4444';
+      btn.style.opacity = '1';
+      btn.disabled = false;
+    }
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   });
-});
 </script>
 
 </body>
